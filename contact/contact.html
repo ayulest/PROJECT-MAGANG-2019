@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zxx">
+<head>
+    <title>pengajuan</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato ">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<body class="w3-ligt-grey">
+  
+  <nav class="w3-sidebar w3-bar-block w3-black w3-animate-right w3-top w3-text-light-grey w3-large" style="z-index:3;width:250px;font-weight:bold;display:none;right:0;" id="mySidebar">
+    <a href="javascript:void()" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-32">CLOSE</a> 
+    <a href="http://ppid.dinkesjatengprov.go.id/ppid/wp-content/uploads/2017/02/permohonan.dinkes.docx" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">
+      <center><i class="fa fa-file-pdf-o fa-fw w3-margin-right w3-xlarge w3-text-white"></i>
+        <p>Dokumen yg Dibutuhkan</p></center></a> 
+    <a href="https://ppid.dinkesjatengprov.go.id/ppid/wp-content/uploads/2017/01/SOP-DINKES.pdf#pdfjs.action=download" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">
+        <center><i class="fa fa-file-pdf-o w3-xxlarge"></i>
+        <p>SOP</p></center>
+      </a>
+     
+      <a href="https://dinkesjatengprov.go.id/v2018/kontak-kami/" onclick="w3_close()" class="w3-bar-item w3-button w3-center w3-padding-16">
+          <center><i class="fa fa-phone w3-xxlarge"></i>
+          <p>Contact</p></center>
+        </a>
+  </nav>
+  
+  <!-- Top menu on small screens -->
+  <header class="w3-container w3-top w3-animate-top w3-pale-blue w3-xlarge w3-padding-16">
+    <span class="w3-left w3-padding"> <a href="http://ppid.jatengprov.go.id/" ><img src="logo.png" width="22%"></a> </span>
+    <a href="javascript:void(0)" class="w3-right w3-button w3-pale-blue" onclick="w3_open()">☰</a>
+  </header>
+  
+  <!-- Overlay effect when opening sidebar on small screens -->
+  <div class="w3-overlay w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+  
+  <div class="w3-container w3-center w3-animate-bottom">
+    
+         
+    <div class="w3-panel w3-round-xxlarge w3-lime">
+      <form align="center" action="contact.php" method="post">
+        <p></p><br>
+        
+        
+        <img src="alur.png" style="width: 875px" ><br>
+        <div class="elem-group">
+        <div  class="w3-container w3-half w3-margin-center w3-green" style="width: 875px" >
+            <h2>Isi Data Dibawah Ini</h2>
+          </div>
+        </div>
+          
+        <div class="elem-group" >
+          <p></p>
+          <label  for="name"><i class="fa fa-user-circle fa-fw w3-margin-right w3-xlarge w3-text-teal"></i>Nama</label>
+
+          <input type="text" id="fname" name="first" placeholder="first name" pattern=[A-Z\sa-z]{3,20} required><span></span>  
+          <input type="text" id="lname" name="last" placeholder="last name" pattern=[A-Z\sa-z]{3,20} required>
+        </div>
+        
+        <div class="elem-group" >
+          <label for="address"><i class="fa fa-home fa-fw w3-margin-right w3-xlarge w3-text-teal"></i>Alamat Anda Saat Ini</label>
+          <input type="address" id="address" name="address" placeholder="alamat, kecamatan, kabupaten, zip code" cols="30" rows="20" required>
+        </div>
+        
+
+        <div class="elem-group">
+          <label for="email"><i class="fa fa-envelope-o fa-fw w3-margin-right w3-xlarge w3-text-teal"></i>Your E-mail</label>
+          <input type="email" id="email" name="visitor_email" placeholder="xxx@xxx.xxx" required>
+        </div>
+        <div class="elem-group">
+          <label for="phone"><i class="fa fa-phone fa-fw w3-margin-right w3-xlarge w3-text-teal"></i>nomor telepon</label>
+          <input type="tel" id="phone" name="phone" placeholder="08xxxxxxx" pattern=[0-9]{10,14} required>
+        </div>
+        <div class="elem-group">
+          <label for="idnumber"><i class="fa fa-id-card-o fa-fw w3-margin-right w3-xlarge w3-text-teal"></i>No. KTP/SIM/Kartu Mahasiswa </label>
+          <input type="tel" id="idnumber" name="idnumber" placeholder="xxxxxxxxxxxx" minlength="5", maxlength="16" required>
+        </div>
+        <div class="elem-group">
+          <label for="cara"><i class="fa fa-list-ul fa-fw w3-margin-right w3-xlarge w3-text-teal"></i>cara memperoleh informasi</label>
+          <select id="cara" name="cara" required>
+              <option value="">pilih</option>
+              <option value="hardcopy">mendapat salinan hardcopy</option>
+              <option value="softcopy">mendapat salinan softcopy</option>
+          </select>
+        </div>
+        <div class="elem-group">
+          <label for="format"><i class="fa fa-list-ul fa-fw w3-margin-right w3-xlarge w3-text-teal"></i>Format Bahan informasi</label>
+          <select id="format" name="format" required>
+              <option value="">pilih</option>
+              <option value="Tercetak">Tercetak</option>
+              <option value="Terekam">Terekam</option>
+          </select>
+        </div>
+        <div class="elem-group">
+          
+          <label for="ambil"><i class="fa fa-list-ul fa-fw w3-margin-right w3-xlarge w3-text-teal"></i>Cara Mendapatkan Salinan Infrmasi</label>
+          <select id="ambil" name="ambil" required>
+              <option value="">pilih</option>
+              <option value="langsung"> Ambil Langsung</option> 
+              <option value="email">Kirim Email</option>
+              <option value="fax">Kirim Fax</option>
+              <option value="paket">Jasa Pengiriman Surat</option>
+          </select>
+        </div>
+        
+
+
+
+        <div class="elem-group">
+          <label for="title">Reason For Contacting Us</label>
+          <input type="text" id="title" name="email_title" required placeholder="Unable to Reset my Password" pattern=[A-Za-z0-9\s]{8,60}>
+        </div>
+        <div class="elem-group">
+          <label for="message"><i class="fa fa-file-text-o fa-fw w3-margin-right w3-xlarge w3-text-teal"></i>data yang dibutuhkan</label>
+          <textarea id="message" name="visitor_message" placeholder="Say whatever you want." required></textarea>
+        </div>
+        <div class="elem-group" style="padding-bottom: 10px">
+          <label for="alasan"><i class="fa fa-file-text-o fa-fw w3-margin-right w3-xlarge w3-text-teal"></i>alasan penggunaan data</label>
+          <textarea id="alasan" name="alasan" placeholder="Say whatever you want." required></textarea>
+        </div>
+        <div>
+          <p></p>
+        </div>
+        <button type="submit" style="padding-top: 10, padding-bottom: 10px" class="w3-btn w3-black">Send Message</button>
+        <div class="elem-group">
+          <p></p>
+        </div>
+      </form>
+      </div>
+      </div>
+      <footer class="w3-panel w3-animate-left" >
+        <div class="relative">
+            <div class="w3-display-container w3-text-black">
+                <img src="a.png" alt="Lights" width="100%" class=" w3-round-large" >
+                <div class="w3-padding w3-display-topleft">
+                  <ul>
+                      <h5>Dinas Kesehatan Jawa Tengah</h5>
+                      <p> 
+                          <a href="http://ppid.jatengprov.go.id/" ><img src="JATENG2.png" width="10%"></a>
+                      </p>
+                  </ul>
+
+                </div>
+                <div class="w3-padding w3-display-topmiddle">
+                  <center><h5 class="">Link Terkait</h5></center>
+                <p></p>
+                
+                  
+                  <ul class="w3-ul ">
+                   <center><li><a href="https://laporgub.jatengprov.go.id/" ><img src="Lapor-Gub.png" width="10%"></a></li> </center> 
+                   <center> <li><a href="https://jatengprov.go.id/" ><img src="jayeng.png" width="15%"></a></li></center>
+                   <center><li><a href="https://bpjs-kesehatan.go.id/bpjs/" ><img src="logo-bpjs.png" width="25%"></a></li> </center> 
+                   
+                </ul>
+              </div>
+                <div class="w3-padding w3-display-topright" s>
+                  <p>
+                  </p>
+
+                   <center>Have Question?</center> <br> 
+                    <pre><a href="	mi_jateng@yahoo.co.id"><i class="fa fa-envelope-o fa-fw w3-margin-right w3-xlarge w3-text-teal"></i>Dinkes Jateng</a>.<br></pre> 
+                    <pre><a href="https://dinkesjatengprov.go.id/"><i class="fa fa-globe fa-fw w3-margin-right w3-xlarge w3-text-teal"></i>dinkesjatengprov.go.id </a></pre>
+                      <pre><i class="fa fa-map-marker fa-fw w3-margin-right w3-xlarge w3-text-teal"></i>Jl. Kapten Piere Tendean No.24 Sekayu,
+      Kec. Semarang Tengah,
+      Kota Semarang,
+      Jawa Tengah 50132
+      Indonesia</pre>
+                    </address>
+                </div>
+                </head>
+
+
+               </ul>
+                </div>
+            </div>
+
+          </div>
+          
+        </div>
+        
+      </footer>
+      <script>
+        // Script to open and close sidebar
+        function w3_open() {
+          document.getElementById("mySidebar").style.display = "block";
+          document.getElementById("myOverlay").style.display = "block";
+        }
+        
+        function w3_close() {
+          document.getElementById("mySidebar").style.display = "none";
+          document.getElementById("myOverlay").style.display = "none";
+        }
+        
+        // Modal Image Gallery
+        function onClick(element) {
+          document.getElementById("img01").src = element.src;
+          document.getElementById("modal01").style.display = "block";
+          var captionText = document.getElementById("caption");
+          captionText.innerHTML = element.alt;
+        }
+        
+        </script>
+        
+        
+</body>
