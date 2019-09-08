@@ -36,11 +36,7 @@ session_start();
             </button>
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto navbar-right-top">
-                    <li class="nav-item">
-                        <div id="custom-search" class="top-search-bar">
-                            <input class="form-control" type="text" placeholder="Search..">
-                        </div>
-                    </li>
+
                     <li class="nav-item dropdown nav-user">
                         <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../../images/folder.png" alt="" class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
@@ -84,7 +80,7 @@ session_start();
                                         <a class="nav-link" href="../infografis/list-infografis.php">Infografis</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="list-slide.php">Slider</a>
+                                        <a class="nav-link" href="list-slider.php">Slider</a>
                                     </li>
                                     <!--                                    <li class="nav-item">-->
                                     <!--                                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Infulencer</a>-->
@@ -160,15 +156,15 @@ session_start();
                     <div class="card">
                         <h5 class="card-header">Form Tambah Slide</h5>
                         <div class="card-body">
-                            <form action="proses-tambah-slide.php" method="POST">
+                            <form action="proses-tambah-slide.php" method="POST" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                                        <label for="slide_img">Link Gambar</label>
-                                        <input type="text" class="form-control" name="slide_img" placeholder="Masukkan Link" value="">
-                                        <div class="valid-feedback">
-                                            Looks good!
-                                        </div>
+                                        <label for="file-input" class=" form-control-label">Upload foto</label></div>
+                                    <div class="col-12 col-md-9"><input type="file" id="file" name="file" class="form-control-file"><small class="form-text text-muted">.jpg . jpeg or .png</small></div>
+                                    <div class="valid-feedback">
+                                        Looks good!
                                     </div>
+                                </div>
 
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                         <br>

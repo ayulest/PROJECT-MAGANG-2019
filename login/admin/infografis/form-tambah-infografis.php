@@ -36,16 +36,12 @@ session_start();
             </button>
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto navbar-right-top">
-                    <li class="nav-item">
-                        <div id="custom-search" class="top-search-bar">
-                            <input class="form-control" type="text" placeholder="Search..">
-                        </div>
-                    </li>
+
                     <li class="nav-item dropdown nav-user">
                         <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../../images/folder.png" alt="" class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                             <div class="nav-user-info">
-                                <h5 class="mb-0 text-white nav-user-name"><?php echo $_SESSION['nama']; ?></h5>
+                                <h5 class="mb-0 text-white nav-user-name"><?php echo $_SESSION['username']; ?></h5>
                                 <span class="status"></span><span class="ml-2">Available</span>
                             </div>
                             <a class="dropdown-item" href="../../logout.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
@@ -82,6 +78,9 @@ session_start();
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="list-infografis.php">Infografis</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="../slider/list-slider.php">Slide</a>
                                     </li>
                                     <!--                                    <li class="nav-item">-->
                                     <!--                                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Infulencer</a>-->
@@ -167,8 +166,8 @@ session_start();
                                         </div>
                                     </div>
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
-                                        <label for="file-input" class=" form-control-label">Foto</label></div>
-                                    <div class="col-12 col-md-9"><input type="file" id="file" name="file" class="form-control-file"><small class="form-text text-muted">.jpg or .png</small></div>
+                                        <label for="file-input" class=" form-control-label">Upload foto</label></div>
+                                    <div class="col-12 col-md-9"><input type="file" id="file" name="file" class="form-control-file"><small class="form-text text-muted">.jpg . jpeg or .png</small></div>
                                         <div class="valid-feedback">
                                             Looks good!
                                         </div>

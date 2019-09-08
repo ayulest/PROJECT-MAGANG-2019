@@ -4,7 +4,7 @@ include("../../../config.php");
 
 // kalau tidak ada id di query string
 if (!isset($_GET['kd_slider'])) {
-    header('Location: list-slide.php');
+    header('Location: list-slider.php');
 }
 
 //ambil id dari query string
@@ -56,16 +56,16 @@ if (mysqli_num_rows($query) < 1) {
             </button>
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto navbar-right-top">
-                    <li class="nav-item">
-                        <div id="custom-search" class="top-search-bar">
-                            <input class="form-control" type="text" placeholder="Search..">
-                        </div>
-                    </li>
+<!--                    <li class="nav-item">-->
+<!--                        <div id="custom-search" class="top-search-bar">-->
+<!--                            <input class="form-control" type="text" placeholder="Search..">-->
+<!--                        </div>-->
+<!--                    </li>-->
                     <li class="nav-item dropdown nav-user">
                         <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../../images/folder.png" alt="" class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                             <div class="nav-user-info">
-                                <h5 class="mb-0 text-white nav-user-name"><?php echo $_SESSION['nama']; ?></h5>
+                                <h5 class="mb-0 text-white nav-user-name"><?php echo $_SESSION['username']; ?></h5>
                                 <span class="status"></span><span class="ml-2">Available</span>
                             </div>
                             <a class="dropdown-item" href="../../logout.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
@@ -184,14 +184,14 @@ if (mysqli_num_rows($query) < 1) {
                     <div class="card">
                         <h5 class="card-header">Form Edit Slider</h5>
                         <div class="card-body">
-                            <form action="proses-edit-slide.php" method="POST">
+                            <form action="proses-edit-slide.php" method="POST" enctype="multipart/form-data">
                                 <div class="row">
                                     <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
                                         <input type="hidden" name="kd_slider" value="<?php echo $edit['kd_slider'] ?>"/>
 
-                                        <label for="slide_img">Link Gambar</label>
-                                        <input type="text" class="form-control" name="slide_img"
-                                               placeholder="Masukkan Link Gambar" value="<?php echo $edit['slide_img'] ?>">
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                            <label for="file-input" class=" form-control-label">Upload Gambar</label></div>
+                                        <div class="col-12 col-md-9"><input type="file" id="file" name="file" class="form-control-file"><small class="form-text text-muted">.jpg or .png</small></div>
                                         <div class="valid-feedback">
                                             Looks good!
                                         </div>

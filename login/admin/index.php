@@ -37,16 +37,16 @@ session_start();
             </button>
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto navbar-right-top">
-                    <li class="nav-item">
-                        <div id="custom-search" class="top-search-bar">
-                            <input class="form-control" type="text" placeholder="Search..">
-                        </div>
-                    </li>
+<!--                    <li class="nav-item">-->
+<!--                        <div id="custom-search" class="top-search-bar">-->
+<!--                            <input class="form-control" type="text" placeholder="Search..">-->
+<!--                        </div>-->
+<!--                    </li>-->
                     <li class="nav-item dropdown nav-user">
                         <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../images/folder.png" alt="" class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                             <div class="nav-user-info">
-                                <h5 class="mb-0 text-white nav-user-name"><?php echo $_SESSION['nama']; ?></h5>
+                                <h5 class="mb-0 text-white nav-user-name"><?php echo $_SESSION['username']; ?></h5>
                                 <span class="status"></span><span class="ml-2">Available</span>
                             </div>
                             <a class="dropdown-item" href="../logout.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
@@ -85,7 +85,7 @@ session_start();
                                         <a class="nav-link" href="infografis/list-infografis.php">Infografis</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="slider/list-slide.php">Slide</a>
+                                        <a class="nav-link" href="slider/list-slider.php">Slide</a>
                                     </li>
 <!--                                    <li class="nav-item">-->
 <!--                                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Infulencer</a>-->
@@ -189,6 +189,7 @@ session_start();
                                 </div>
                             </div>
                         </div>
+
                         <!-- ============================================================== -->
                         <!-- end new customer  -->
                         <!-- ============================================================== -->
@@ -217,12 +218,26 @@ session_start();
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
                             <div class="card border-3 border-top border-top-primary">
                                 <div class="card-body">
-                                    <h5 class="text-muted"><a href="user/list-user.php" target="_blank">Admin</a></h5>
+                                    <h5 class="text-muted"><a href="slider/list-slider.php" target="_blank">Slider Home</h5>
                                     <div class="metric-value d-inline-block">
                                         <h1 class="mb-1"></h1>
                                     </div>
                                     <div class="metric-label d-inline-block float-right text-danger font-weight-bold">
                                         <span class="icon-circle-small icon-box-xs text-success bg-success-light "></span><span class="ml-1"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col-12">
+                            <div class="card border-3 border-top border-top-primary">
+                                <div class="card-body">
+                                    <h5 class="text-muted"><a href="user/list-user.php" target="_blank">Admin</a></h5>
+                                    <div class="metric-value d-inline-block">
+                                        <h1 class="mb-1"></h1>
+                                    </div>
+                                    <div class="metric-label d-inline-block float-right text-success font-weight-bold">
+                                        <span class="icon-circle-small icon-box-xs text-danger bg-danger-light bg-danger-light"></span><span class="ml-1"></span>
                                     </div>
                                 </div>
                             </div>

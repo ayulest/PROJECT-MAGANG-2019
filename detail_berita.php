@@ -134,7 +134,7 @@ while($array= mysqli_fetch_array($berita)){
         <div class="row justify-content-center">
             <div class="col-md-9 mb-4">
                 <p class="mb-5">
-                    <img src="' . $array['image'] . '" alt="Image" class="img-fluid">
+                    <img src="images/'.$array['gambar_berita'].'" alt="Image" class="img-fluid">
                 </p>
                 <p align="justify">' . $array['isi_berita'] . '</p>
                </div>

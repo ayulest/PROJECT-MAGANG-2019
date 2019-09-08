@@ -9,7 +9,7 @@ if(isset($_POST['tambah'])){
 //    $kd_infografis =$_POST['kd_infografis'];
     $judul_infografis = $_POST['judul_infografis'];
 //    $gambar = $_POST['gambar'];
-    $ekstensi_diperbolehkan	= array('png','jpg');
+    $ekstensi_diperbolehkan	= array('png','jpg','jpeg');
     $nama = $_FILES['file']['name'];
     $x = explode('.', $nama);
     $ekstensi = strtolower(end($x));

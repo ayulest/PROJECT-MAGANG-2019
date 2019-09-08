@@ -96,41 +96,48 @@
     </div>
 </nav>
 <!-- END nav -->
-
-
 <section id="home-section" class="hero">
     <div class="home-slider owl-carousel">
-        <div class="slider-item" style="background-image: url(images/Dirgahayu-RI-74s.png);">
+        <?php
+        include "config.php";
+        $sql = "SELECT * FROM slider ORDER BY kd_slider";
+        $query = mysqli_query($db, $sql);
+
+        while ($slider = mysqli_fetch_array($query)) {
+            echo '
+        <div class="slider-item" style="background-image: url(images/'.$slider['gambar_slider'].');">
             <div class="overlay"></div>
             <div class="container">
                 <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
                 </div>
             </div>
+            </div>
+             ';}?>
         </div>
 
-        <div class="slider-item" style="background-image: url(images/bahagia1.png);">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-                </div>
-            </div>
-        </div>
-        <div class="slider-item" style="background-image: url(images/a1.png);">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-                </div>
-            </div>
-        </div>
+<!--        <div class="slider-item" style="background-image: url(images/bahagia1.png);">-->
+<!--            <div class="overlay"></div>-->
+<!--            <div class="container">-->
+<!--                <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--        <div class="slider-item" style="background-image: url(images/a1.png);">-->
+<!--            <div class="overlay"></div>-->
+<!--            <div class="container">-->
+<!--                <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!---->
+<!--        <div class="slider-item" style="background-image: url(images/b.jpg);">-->
+<!--            <div class="overlay"></div>-->
+<!--            <div class="container">-->
+<!--                <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
 
-        <div class="slider-item" style="background-image: url(images/b.jpg);">
-            <div class="overlay"></div>
-            <div class="container">
-                <div class="row slider-text justify-content-center align-items-center" data-scrollax-parent="true">
-                </div>
-            </div>
-        </div>
-    </div>
 </section>
 
 <section class="ftco-section">
@@ -239,7 +246,7 @@
                         echo '
                     <div class="col-lg-6">
                         <div class="post-entry-big horizontal d-flex mb-4">
-                            <a href="news-single.html" class="img-link mr-4"><img src="' . $array['image'] . '" alt="Image" class="img-fluid"></a>
+                            <a href="news-single.html" class="img-link mr-4"><img src="images/'.$array['gambar_berita'].'" alt="Image" class="img-fluid"></a>
                             <div class="post-content">
                                 <div class="post-meta">
                                    <a href="#">' . $array['tgl_berita'] . '</a>

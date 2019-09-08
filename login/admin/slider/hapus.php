@@ -13,7 +13,7 @@ if( isset($_GET['kd_slider']) ){
 
     // apakah query hapus berhasil?
     if( $query ){
-        header('Location: list-slide.php');
+        header('Location: list-slider.php');
     } else {
         die("gagal menghapus...");
     }

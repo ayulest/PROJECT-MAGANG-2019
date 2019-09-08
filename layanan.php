@@ -201,7 +201,7 @@
             <div class="col-md-4 ftco-animate fadeInUp ftco-animated">
                 <div class="testimony-wrap2">
                     <a href="#">
-                        <div class="user-img mb-4" style="background-image: url(images/Ekstrakbahanalami.png)">
+                        <div class="user-img mb-4" style="background-image: url(images/pelayanan_permohonan_informasi.png)">
                         </div>
                     </a>
                 <div class="block-7">

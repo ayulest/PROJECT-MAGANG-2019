@@ -7,12 +7,12 @@ if (isset($_POST['simpan'])) {
 
     // ambil data dari formulir
     $kd_admin =$_POST['kd_admin'];
-    $nama = $_POST['nama'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
 
 
     // buat query update
-    $sql = "UPDATE table_login SET nama='$nama', password=MD5('$password')WHERE kd_admin='$kd_admin'";
+    $sql = "UPDATE table_login SET username='$username', password=MD5('$password')WHERE kd_admin='$kd_admin'";
     $query = mysqli_query($db, $sql);
 
     // apakah query update berhasil?

@@ -7,13 +7,13 @@ if(isset($_POST['tambah'])){
 
     // ambil data dari formulir
     $kd_admin =$_POST['kd_admin'];
-    $nama = $_POST['nama'];
+    $username = $_POST['username'];
     $password =$_POST['password'];
 
 
 
     // buat query
-    $sql = "INSERT INTO table_login (nama, password) VALUE ('$nama',MD5('$password'))";
+    $sql = "INSERT INTO table_login (username, password) VALUE ('$username',MD5('$password'))";
     $query = mysqli_query($db, $sql);
 
     // apakah query simpan berhasil?

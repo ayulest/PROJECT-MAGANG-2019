@@ -1,5 +1,25 @@
 <?php
 session_start();
+include("../../../config.php");
+
+// kalau tidak ada id di query string
+if (!isset($_GET['kd_berita'])) {
+    header('Location: list-berita.php');
+}
+
+//ambil id dari query string
+$kd_berita = $_GET['kd_berita'];
+
+// buat query untuk ambil data dari database
+$sql = "SELECT * FROM berita WHERE kd_berita=$kd_berita";
+$query = mysqli_query($db, $sql);
+$edit = mysqli_fetch_assoc($query);
+
+// jika data yang di-edit tidak ditemukan
+if (mysqli_num_rows($query) < 1) {
+    die("data tidak ditemukan...");
+}
+
 ?>
 <!doctype html>
 <html lang="en">
@@ -36,16 +56,16 @@ session_start();
             </button>
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto navbar-right-top">
-                    <li class="nav-item">
-                        <div id="custom-search" class="top-search-bar">
-                            <input class="form-control" type="text" placeholder="Search..">
-                        </div>
-                    </li>
+<!--                    <li class="nav-item">-->
+<!--                        <div id="custom-search" class="top-search-bar">-->
+<!--                            <input class="form-control" type="text" placeholder="Search..">-->
+<!--                        </div>-->
+<!--                    </li>-->
                     <li class="nav-item dropdown nav-user">
                         <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="../../../images/folder.png" alt="" class="user-avatar-md rounded-circle"></a>
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                             <div class="nav-user-info">
-                                <h5 class="mb-0 text-white nav-user-name"><?php echo $_SESSION['nama']; ?></h5>
+                                <h5 class="mb-0 text-white nav-user-name"><?php echo $_SESSION['username']; ?></h5>
                                 <span class="status"></span><span class="ml-2">Available</span>
                             </div>
                             <a class="dropdown-item" href="../../logout.php"><i class="fas fa-power-off mr-2"></i>Logout</a>
@@ -65,7 +85,8 @@ session_start();
         <div class="menu-list">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="d-xl-none d-lg-none" href="#">Content</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -74,17 +95,19 @@ session_start();
                             Menu
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fab fa-fw fa-wpforms"></i>Content <span class="badge badge-success">6</span></a>
+                            <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false"
+                               data-target="#submenu-1" aria-controls="submenu-1"><i class="fab fa-fw fa-wpforms"></i>Content
+                                <span class="badge badge-success">6</span></a>
                             <div id="submenu-1" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="../berita/list-berita.php">Berita</a>
+                                        <a class="nav-link" href="list-berita.php">Berita</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="../infografis/list-infografis.php">Infografis</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="list-slide">Slider</a>
+                                        <a class="nav-link" href="../slider/list-slider.php">Slide</a>
                                     </li>
                                     <!--                                    <li class="nav-item">-->
                                     <!--                                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">Infulencer</a>-->
@@ -107,7 +130,9 @@ session_start();
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3"><i class="fa fa-fw fa-user-circle"></i>User</a>
+                            <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                               data-target="#submenu-3" aria-controls="submenu-3"><i
+                                        class="fa fa-fw fa-user-circle"></i>User</a>
                             <div id="submenu-3" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
@@ -120,10 +145,9 @@ session_start();
                 </div>
             </nav>
         </div>
-    </div>
-    <!-- ============================================================== -->
+    </div>    <!-- ============================================================== -->
     <!-- end left sidebar -->
-
+    <!-- ============================================================== -->
     <!-- ============================================================== -->
     <!-- wrapper  -->
     <!-- ============================================================== -->
@@ -135,12 +159,13 @@ session_start();
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="page-header">
-                        <h2 class="pageheader-title">Data Slide</h2>
+                        <h2 class="pageheader-title">Form Edit</h2>
+                        <p class="pageheader-text"></p>
                         <div class="page-breadcrumb">
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
-                                    <button><a href="form-tambah-slide.php">Tambah Slide</a></button>
-
+                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                                    <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Forms Edit</a></li>
                                 </ol>
                             </nav>
                         </div>
@@ -150,47 +175,63 @@ session_start();
             <!-- ============================================================== -->
             <!-- end pageheader -->
             <!-- ============================================================== -->
+
             <div class="row">
                 <!-- ============================================================== -->
-                <!-- basic table  -->
+                <!-- validation form -->
                 <!-- ============================================================== -->
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                     <div class="card">
-                        <h5 class="card-header">Data Slide</h5>
+                        <h5 class="card-header">Form Edit Berita</h5>
                         <div class="card-body">
-                            <div class="table-responsive">
-                                <table class="table table-striped table-bordered first">
-                                    <thead>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Gambar</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php
-                                    include("../../../config.php");
-                                    $no=1;
-                                    $sql = "SELECT * FROM  slider";
-                                    $query = mysqli_query($db, $sql);
+                            <form action="proses-edit-berita.php" method="POST" enctype="multipart/form-data">
+                                <div class="row">
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                        <input type="hidden" name="kd_berita" value="<?php echo $edit['kd_berita'] ?>"/>
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                        <label for="judul_berita">Judul Berita</label>
+                                        <input type="text" class="form-control" name="judul_berita"
+                                               placeholder="Judul Berita" value="<?php echo $edit['judul_berita'] ?>">
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                        <label for="file-input" class=" form-control-label">Upload Gambar</label></div>
+                                    <div class="col-12 col-md-5"><input type="file" id="file" name="file" class="form-control-file" value="<?php echo $edit['gambar_berita']?>"><small class="form-text text-muted">.jpg . jpeg or .png</small></div>
+                                        <div class="valid-feedback">
+                                            Looks good!
+                                        </div>
+                                    </div>
 
-                                    while($slide = mysqli_fetch_array($query)){
-                                        echo "<tr>";
+                                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                        <label for="tgl_berita">Tanggal</label>
+                                        <input type="text" class="form-control" name="tgl_berita"
+                                               placeholder="Tanggal Berita" value="<?php echo $edit['tgl_berita'] ?>">
+                                        <div class="invalid-feedback">
+                                            Please provide a valid date.
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12 mb-2">
+                                        <label for="penulis_berita">Writer</label>
+                                        <input type="text" class="form-control" name="penulis_berita"
+                                               placeholder="Penulis Berita" value="<?php echo $edit['penulis_berita'] ?>">
+                                        <div class="invalid-feedback">
+                                            Insert admin name.
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                        <label for="isi_berita">Isi Berita</label>
+                                        <textarea class="form-control" name="isi_berita" rows="3"
+                                                  placeholder="Isi Berita"><?php echo $edit['isi_berita'] ?></textarea>
 
-                                        echo "<td>".$no++."</td>";
-                                        echo "<td>".$slide['slide_img']."</td>";
-
-                                        echo "<td>";
-                                        echo "<a href='form-edit-slide.php?kd_slider=".$slide['kd_slider']."'>Edit</a> | ";
-                                        echo "<a href='hapus.php?kd_slider=".$slide['kd_slider']."'>Hapus</a>";
-                                        echo "</td>";
-
-                                        echo "</tr>";
-                                    }
-                                    ?>
-                                    </tbody>
-                                </table>
-                            </div>
+                                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                            <br>
+                                            <button class="btn btn-primary" type="submit" name="simpan">Submit form
+                                            </button>
+                                        </div>
+                                    </div>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -198,7 +239,8 @@ session_start();
                 <!-- end basic table  -->
                 <!-- ============================================================== -->
             </div>
-            </div>
+        </div>
+
     </div>
 </div>
 <!-- ============================================================== -->

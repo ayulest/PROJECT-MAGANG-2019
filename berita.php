@@ -127,7 +127,7 @@ include "config.php";
                         echo '
                     <div class="col-md-12 d-flex ftco-animate">
                         <div class="blog-entry align-self-stretch d-md-flex">
-                            <a href="blog-single.html" class="block-20" style="background-image: url(' . $array['image'] . ');">
+                            <a href="blog-single.html" class="block-20" style="background-image: url(images/'.$array['gambar_berita'].');">
                             </a>
                             <div class="text d-block pl-md-4">
                                 <div class="meta mb-3">
@@ -148,7 +148,7 @@ include "config.php";
             </div> <!-- .col-md-8 -->
             <div class="col-lg-4 sidebar ftco-animate">
                 <div class="sidebar-box">
-                    <form method="post" class="search-form">
+                    <form action="search.php" method="post" class="search-form">
                         <div class="form-group">
                             <span class="icon ion-ios-search"></span>
                             <input type="text" name="cari" class="form-control" placeholder="Search...">
@@ -164,7 +164,7 @@ include "config.php";
                     while ($array = mysqli_fetch_array($berita)) {
                         echo '
                     <div class="block-21 mb-4 d-flex">
-                        <a class="blog-img mr-4" style="background-image: url(' . $array['image'] . ');"></a>
+                        <a class="blog-img mr-4" style="background-image: url(images/'.$array['gambar_berita'].');"></a>
                         <div class="text">
                             <h3 class="heading-1"><a href="detail_berita.php?kd_berita='.$array['kd_berita'].'">' . $array['judul_berita'] . '</a></h3>
                             <div class="meta">
